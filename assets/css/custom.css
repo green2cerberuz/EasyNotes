@@ -1,0 +1,43 @@
+.add-note {
+    margin-top: 1rem;
+}
+
+.color-changer {
+    margin-top: 1rem;
+}
+
+
+.note-date, .note-title {
+    text-align: left;
+    display: inline-block;
+}
+
+.note-title {
+    padding-left: 0.50rem;
+}
+
+.note-brief {
+    font-size: 1rem;
+}
+
+.note{
+    padding-top: 1px;
+    margin-top: 10px;
+    border:1px solid black;
+    box-shadow: 2px 3px black;
+}
+
+/** IDS **/
+#color-changer-markup {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+#change-color {
+    display: block;
+    height: 50px;
+    text-align: center;
+    border-radius: 50%;
+}

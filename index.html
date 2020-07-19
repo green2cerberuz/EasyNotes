@@ -6,15 +6,86 @@
   <title>EasyNotes</title>
   <link rel="stylesheet" href="./assets/css/normalize.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+  <link rel="stylesheet" href="./assets/css/custom.css">
 </head>
 <body>
-  <section>
-    <div class="container">
-      <h1 class="title">
-        Hello EasyNotes!!!
-      </h1>
+  <header>
+    <h1 class="title">
+      EasyNote App
+    </h1>
+  </header>
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <section id="note-stack-interface">
+          <header>
+            <h1 class="title">
+              Notes Stack
+            </h1>
+          </header>
+          <!-- Note stack, a rown with all notes -->
+          <div class="notes-stack">
+            <div class="note">
+              <div class="columns">
+                <div class="column is-12">
+                  <p class="note-date">12-07-2020</p>
+                  <p class="note-title"> Primera Nota del easyNotes</p>
+                  <p class="note-brief subtitle">La primera nota del html que busco....</p>
+                </div>
+              </div>
+            </div>
+            <div class="note">
+              <div class="columns">
+                <div class="column is-12">
+                  <p class="note-date">12-07-2020</p>
+                  <p class="note-title"> Primera Nota del easyNotes</p>
+                  <p class="note-brief subtitle">La primera nota del html que busco....</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="add-note button is-primary">Add a note</button>
+
+
+        </section>
+      </div>
+      <!-- Notes content section, when click a note to edit, it is shown here-->
+      <div class="column">
+        <section>
+          <header>
+            <h1 class="title">
+              Notes Description
+            </h1>
+          </header>
+        </section>
+      </div>
     </div>
-  </section>
+  </div>
+  <!-- A little widget to do a color changer element for all my notes-->
+  <div id="color-changer-markup" class="container">
+    <div class="color-changer">
+      <button id="change-color" class="button is-link">CC</button>
+    </div>
+  </div>
+
+  <!-- Modal to add a note -->
+  <div class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Add a new note</p>
+        <button class="delete" aria-label="close"></button>
+      </header>
+      <section class="modal-card-body">
+        <textarea name="Notecontent" id="#note-content" cols="30" rows="10"></textarea>
+      </section>
+      <footer class="modal-card-foot">
+        <button class="button is-success">Save</button>
+        <button class="button is-danger">Cancel</button>
+      </footer>
+    </div>
+  </div>
+
   <script src="./assets/js/app.js"></script>
 </body>
 </html>
