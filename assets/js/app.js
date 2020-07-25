@@ -1,5 +1,4 @@
 console.clear();
-console.log("First Test");
 
 // EventListeners
 function EventListeners(){
@@ -14,13 +13,8 @@ function EventListeners(){
   document.querySelector('#save-note').addEventListener('click', saveNote);
 
   // add listeners to all cards to edit notes
-  // Refactoring this to use delegation
   let noteStack = document.querySelector('.notes-stack');
   noteStack.addEventListener('click', handleStackEvents);
-  //let notes = document.querySelector('.notes-stack').children;
-  //for(let note of notes){
-  //  note.addEventListener('click', editNote);
-  //}
 
 }
 
@@ -40,14 +34,15 @@ function closeModal(event){
 }
 
 function saveNote(event){
-  let modal_body, note;
+  let modalBody, note, inputTitle, inputBody;
 
   // search for input text area
-  modal_body = document.querySelector('.modal-card-body');
-  input = modal_body.getElementsByTagName('textarea')[0];
+  modalBody = document.querySelector('.modal-card-body');
+  inputTitle = modalBody.getElementsByTagName('input')[0];
+  inputBody = modalBody.getElementsByTagName('textarea')[0];
 
   // here we will create note object
-  let noteObj = _createNoteObject(input.value)
+  let noteObj = _createNoteObject(inputTitle.value, inputBody.value)
   note = _createNoteElement(noteObj);
 
   // create note in localStorage
@@ -55,8 +50,9 @@ function saveNote(event){
 
   // append note in notes-stack and clean input field
   document.querySelector('.notes-stack').appendChild(note);
-  modal_body.parentElement.parentElement.classList.toggle('is-active');
-  input.value= '';
+  modalBody.parentElement.parentElement.classList.toggle('is-active');
+  inputBody.value= '';
+  inputTitle.value = '';
 
 }
 
@@ -100,12 +96,13 @@ function saveNoteInBrowser(noteObj){
 }
 
 /** Create note utilities for note objects */
-function _createNoteObject(value){
+function _createNoteObject(title, body){
   // Create my note object to stringify
   return {
-    'title': value,
+    'title': title,
     'createdAt': new Date().toDateString(),
-    'brief':  String(value).substring(0, value.length/2),
+    'brief':  String(body).substring(0, body.length/2),
+    'body': body,
     'position': 1
     //'position': _get_note_position()
   }
