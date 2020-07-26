@@ -16,11 +16,24 @@ function EventListeners(){
   let noteStack = document.querySelector('.notes-stack');
   noteStack.addEventListener('click', handleStackEvents);
 
+  document.addEventListener('DOMContentLoaded', localStorageOnLoad);
+
 }
 
 EventListeners();
 
 // Functions
+function localStorageOnLoad(event){
+
+  let notes, stack;
+  stack = document.querySelector('.notes-stack');
+  notes = JSON.parse(localStorage.getItem('notes'));
+  notes.forEach(function(note){
+    stack.appendChild(_createNoteElement(note));
+  });
+
+}
+
 function openModal(event){
   // Add basic open modal functionality
   let modal = document.querySelector('.modal');
@@ -144,7 +157,7 @@ function _createNoteBody(){
 }
 
 function _createNoteElement(noteObj){
-  /** Create a note and render on note stack*/
+  /** Create a note element, with classes and event*/
   let noteBody, note;
   noteBody = _createNoteBody()
   note = document.createElement('div');
