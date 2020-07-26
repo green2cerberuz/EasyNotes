@@ -48,3 +48,8 @@
     text-align: center;
     border-radius: 50%;
 }
+
+
+#note-content {
+    margin-top: 5px;
+}

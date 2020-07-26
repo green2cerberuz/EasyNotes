@@ -24,28 +24,7 @@
             </h1>
           </header>
           <!-- Note stack, a rown with all notes -->
-          <div class="notes-stack">
-            <div class="note">
-              <div class="columns">
-                <div class="column is-12">
-                  <p class="note-date">12-07-2020</p>
-                  <p class="note-title"> Primera Nota del easyNotes</p>
-                  <p class="note-brief subtitle">La primera nota del html que busco....</p>
-                  <button class='button delete-note is-danger is-small' data-action="delete">Delete</button>
-                </div>
-              </div>
-            </div>
-            <div class="note">
-              <div class="columns">
-                <div class="column is-12">
-                  <p class="note-date">12-07-2020</p>
-                  <p class="note-title"> Primera Nota del easyNotes</p>
-                  <p class="note-brief subtitle">La primera nota del html que busco....</p>
-                  <button class='button delete-note is-danger is-small' data-action="delete">Delete</button>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div class="notes-stack"></div>
           <button class="add-note button is-primary">Add a note</button>
 
 
@@ -60,7 +39,7 @@
             </h1>
           </header>
           <div id="note-content">
-            <textarea name="editNote" id="" cols="70" rows="10"></textarea>
+            <textarea name="editNote textarea" id="" cols="70" rows="10"></textarea>
           </div>
           <footer>
             <!-- <button class='button delete-note is-danger'>Delete</button> -->
@@ -85,7 +64,8 @@
         <button class="delete close-modal" aria-label="close"></button>
       </header>
       <section class="modal-card-body">
-        <textarea name="Notecontent" id="#note-content" cols="30" rows="10"></textarea>
+        <input id="model-note-title" class="input" type="text" placeholder="Note title">
+        <textarea class="textarea" placeholder="Write your note" name="Notecontent" id="note-content" cols="30" rows="10"></textarea>
       </section>
       <footer class="modal-card-foot">
         <button id="save-note" class="button is-success">Save</button>
