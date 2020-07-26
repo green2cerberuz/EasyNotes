@@ -12,6 +12,16 @@ function EventListeners(){
   // listener to save notes
   document.querySelector('#save-note').addEventListener('click', saveNote);
 
+  // add event to change app color
+  document.querySelector("#change-color").addEventListener('click', openColorSelectorModal);
+
+  // add eventos to change note colors
+  let colorButtons = document.querySelectorAll('.color-selector');
+  colorButtons.forEach(function(button){
+    button.addEventListener('click', changeAppColor);
+  })
+
+
   // add listeners to all cards to edit notes
   let noteStack = document.querySelector('.notes-stack');
   noteStack.addEventListener('click', handleStackEvents);
@@ -27,11 +37,23 @@ function localStorageOnLoad(event){
 
   let notes, stack;
   stack = document.querySelector('.notes-stack');
+  if(localStorage.getItem('settings')){
+    document.getElementsByTagName('html')[0].style.backgroundColor = JSON.parse(localStorage.getItem('settings')).bgColor
+  }else{
+    settings = {
+      'bgColor': "#feff9c"
+    }
+    localStorage.setItem('settings', JSON.stringify(settings));
+  }
   notes = JSON.parse(localStorage.getItem('notes'));
   notes.forEach(function(note){
     stack.appendChild(_createNoteElement(note));
   });
 
+}
+
+function openColorSelectorModal(event){
+  document.querySelector('#modal-change-color').classList.toggle('is-active');
 }
 
 function openModal(event){
@@ -44,6 +66,20 @@ function closeModal(event){
   // Close modal functionality, improve just for testing html modal code
   let modal = document.querySelector('.modal');
   modal.classList.toggle('is-active');
+}
+
+function changeAppColor(event){
+  console.log(event.target);
+  let color = getComputedStyle(event.target).backgroundColor;
+  document.getElementsByTagName('html')[0].style.backgroundColor = color;
+
+  // Save new settings in localStorage.
+  let settings = JSON.parse(localStorage.getItem('settings'));
+  settings.bgColor = color;
+  localStorage.setItem('settings', JSON.stringify(settings));
+  // Analyze a better user experience
+  console.log(event.target.parentElement.parentElement.parentElement.parentElement.classList.toggle('is-active'));
+
 }
 
 function saveNote(event){

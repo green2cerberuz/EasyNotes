@@ -4,7 +4,7 @@ html {
 }
 
 textarea {
-    background-color: #feff9c;
+    /* background-color: #feff9c; */
     border: black 1px solid;
     box-shadow: 2px 3px black;
 }
@@ -49,6 +49,22 @@ textarea {
     box-shadow: 2px 3px black;
 }
 
+.color-selector {
+    display: inline-block;
+    margin: 0 auto;
+    width: 20%;
+    height: 50px;
+    margin-left: 5px;
+    margin-right: 5px;
+
+}
+
+.color-selector-wrapper {
+    width: 100%;
+}
+
+
+
 /** IDS **/
 #color-changer-markup {
     position: absolute;
@@ -68,3 +84,20 @@ textarea {
 #note-content {
     margin-top: 5px;
 }
+
+#sticky-yellow {
+    background-color: #feff9c;
+}
+
+#sticky-pink {
+    background-color: #ff7eb9;
+}
+
+#sticky-blue {
+    background-color: #7afcff;
+}
+
+#sticky-green {
+    background-color: #cfc;
+}
+
