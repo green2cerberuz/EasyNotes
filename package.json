@@ -1,0 +1,27 @@
+{
+  "name": "easynotes",
+  "version": "1.0.0",
+  "description": "A helper tool to manage notes in localStorage",
+  "main": "./assets/js/app.js",
+  "scripts": {
+    "light-server": "light-server -s . -p 5500"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/green2cerberuz/EasyNotes.git"
+  },
+  "keywords": [
+    "Utilities",
+    "development",
+    "productivity"
+  ],
+  "author": "Cristhian Bravo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/green2cerberuz/EasyNotes/issues"
+  },
+  "homepage": "https://github.com/green2cerberuz/EasyNotes#readme",
+  "dependencies": {
+    "light-server": "^2.7.0"
+  }
+}
