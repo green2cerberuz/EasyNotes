@@ -2,5 +2,6 @@
 .gitignore
 .editorconfig
 .dockerignore
+package-lock.json
 start.sh
 node_modules/

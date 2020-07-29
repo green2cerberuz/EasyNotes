@@ -23,5 +23,10 @@
   "homepage": "https://github.com/green2cerberuz/EasyNotes#readme",
   "dependencies": {
     "light-server": "^2.7.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.5.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0"
   }
 }

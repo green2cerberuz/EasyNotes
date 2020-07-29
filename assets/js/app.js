@@ -1,8 +1,7 @@
 console.clear();
 
 // EventListeners
-function EventListeners(){
-
+function EventListeners() {
   // listeners to add notes
   document.querySelector('.add-note').addEventListener('click', openModal);
 
@@ -13,21 +12,18 @@ function EventListeners(){
   document.querySelector('#save-note').addEventListener('click', saveNote);
 
   // add event to change app color
-  document.querySelector("#change-color").addEventListener('click', openColorSelectorModal);
+  document.querySelector('#change-color').addEventListener('click', openColorSelectorModal);
 
   // add eventos to change note colors
-  let colorButtons = document.querySelectorAll('.color-selector');
-  colorButtons.forEach(function(button){
+  const colorButtons = document.querySelectorAll('.color-selector');
+  colorButtons.forEach( (button) => {
     button.addEventListener('click', changeAppColor);
   })
 
-
   // add listeners to all cards to edit notes
-  let noteStack = document.querySelector('.notes-stack');
+  const noteStack = document.querySelector('.notes-stack');
   noteStack.addEventListener('click', handleStackEvents);
-
   document.addEventListener('DOMContentLoaded', localStorageOnLoad);
-
 }
 
 EventListeners();
