@@ -4,7 +4,7 @@
   "description": "A helper tool to manage notes in localStorage",
   "main": "./assets/js/app.js",
   "scripts": {
-    "light-server": "light-server -s . -p 5500"
+    "light-server": "light-server -s . -w '*.js /assets/** index.html ' -p 5500"
   },
   "repository": {
     "type": "git",
