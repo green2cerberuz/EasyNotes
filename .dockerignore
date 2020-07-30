@@ -1,6 +1,0 @@
-.git
-.gitignore
-.editorconfig
-.dockerignore
-start.sh
-node_modules/
