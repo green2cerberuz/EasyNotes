@@ -1,0 +1,37 @@
+{
+  "name": "easynotes",
+  "version": "1.1.0",
+  "description": "A helper tool to manage notes in localStorage",
+  "main": "./assets/js/app.js",
+  "scripts": {
+    "light-server": "light-server -s . -w '*.js /assets/** index.html ' -p 5500",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/green2cerberuz/EasyNotes.git"
+  },
+  "keywords": [
+    "Utilities",
+    "development",
+    "productivity"
+  ],
+  "author": "Cristhian Bravo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/green2cerberuz/EasyNotes/issues"
+  },
+  "homepage": "https://github.com/green2cerberuz/EasyNotes#readme",
+  "dependencies": {
+    "light-server": "^2.7.0"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.11.0",
+    "babel-jest": "^26.2.2",
+    "eslint": "^7.5.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "husky": "^4.2.5",
+    "jest": "^26.2.2"
+  }
+}
