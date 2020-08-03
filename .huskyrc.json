@@ -1,6 +1,6 @@
 {
     "hooks": {
-        "pre-commit": "npn test",
-        "prepare-commit-msg": "sh scripts/my-specific-hook.sh"
+        "pre-commit": "npm test",
+        "prepare-commit-msg": "bash scripts/prepare-commit-msg.sh -E HUSKY_GIT_STDIN"
     }
 }
