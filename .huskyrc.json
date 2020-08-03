@@ -1,0 +1,6 @@
+{
+    "hooks": {
+        "pre-commit": "npn test",
+        "prepare-commit-msg": "sh scripts/my-specific-hook.sh"
+    }
+}
