@@ -4,7 +4,8 @@
   "description": "A helper tool to manage notes in localStorage",
   "main": "./assets/js/app.js",
   "scripts": {
-    "light-server": "light-server -s . -w '*.js /assets/** index.html ' -p 5500"
+    "light-server": "light-server -s . -w '*.js /assets/** index.html ' -p 5500",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },
   "repository": {
     "type": "git",
@@ -25,8 +26,11 @@
     "light-server": "^2.7.0"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.11.0",
+    "babel-jest": "^26.2.2",
     "eslint": "^7.5.0",
     "eslint-config-airbnb-base": "^14.2.0",
-    "eslint-plugin-import": "^2.22.0"
+    "eslint-plugin-import": "^2.22.0",
+    "jest": "^26.2.2"
   }
 }
