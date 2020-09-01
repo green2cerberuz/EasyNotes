@@ -1,4 +1,8 @@
-import { _createNoteObject, openColorSelectorModal, openModal } from "../functions";
+import { App } from "../app.js";
+
+const app = new App();
+
+// import { _createNoteObject, openColorSelectorModal, openModal } from "../functions";
 
 describe('Create note object function', () => {
   // test stuff
@@ -15,7 +19,7 @@ describe('Create note object function', () => {
       createdAt: new Date().toDateString(),
       brief: String(input.body).substring(0, input.body.length / 2),
     }
-    expect(_createNoteObject(input.title, input.body)).toEqual(output);
+    expect(app.createNoteObject(input.title, input.body)).toEqual(output);
   })
   test('testing logic to open color selector modal', () => {
     document.body.innerHTML = `
@@ -24,14 +28,12 @@ describe('Create note object function', () => {
     `;
     // setup button element to open it
     const button = document.getElementById('change-color');
-    button.addEventListener('click', openColorSelectorModal);
+    button.addEventListener('click', app.ui.openColorSelectorModal);
     button.click();
 
     // test behavior
     const modal = document.getElementById('modal-change-color');
     expect(modal.classList.contains('is-active')).toEqual(true);
-
-
   })
 
   test('testing opening main modal', () => {
@@ -40,7 +42,7 @@ describe('Create note object function', () => {
     <div class="modal"></div>
     `;
     const button = document.querySelector('.add-note');
-    button.addEventListener('click', openModal);
+    button.addEventListener('click', app.ui.openNoteModal);
     button.click()
     const modal = document.querySelector('.modal');
     expect(modal.classList.contains('is-active')).toEqual(true);
