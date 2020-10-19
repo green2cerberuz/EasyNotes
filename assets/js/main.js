@@ -1,31 +1,8 @@
 // Functions
 // import { EventListeners } from './functions.js';
-import { App } from './app.js'
+import App from './app.js';
 
 const app = new App();
-
-export function EventListeners() {
-
-  // modals listeners
-  document.querySelector('.add-note').addEventListener('click', app.ui.openNoteModal);
-  document.querySelector('.close-modal').addEventListener('click', app.ui.closeModal);
-  document.querySelector('#change-color').addEventListener('click', app.ui.openColorSelectorModal);
-
-  // listener to save notes
-  document.querySelector('#save-note').addEventListener('click', function () { app.saveNote() });
-
-
-  // add events to change note colors
-  const colorButtons = document.querySelectorAll('.color-selector');
-  colorButtons.forEach((button) => {
-    button.addEventListener('click', app.ui.changeAppColor);
-  });
-
-  // add listeners to all cards to edit notes
-  const noteStack = document.querySelector('.notes-stack');
-  noteStack.addEventListener('click', handleStackEvents);
-  document.addEventListener('DOMContentLoaded', loadNotes);
-}
 
 function handleStackEvents(event) {
   if (
@@ -42,7 +19,7 @@ function handleStackEvents(event) {
   }
 }
 
-function loadNotes(){
+function loadNotes() {
   const stack = document.querySelector('.notes-stack');
   // update localStorage settings
   if (localStorage.getItem('settings')) {
@@ -53,11 +30,32 @@ function loadNotes(){
     };
     localStorage.setItem('settings', JSON.stringify(settings));
   }
-
+  // app.db.ReadNotesFromDB();
   const notes = JSON.parse(localStorage.getItem('notes'));
   notes.forEach((note) => {
     stack.appendChild(app.createNoteElement(note));
   });
+}
+
+export default function EventListeners() {
+  // modals listeners
+  document.querySelector('.add-note').addEventListener('click', app.ui.openNoteModal);
+  document.querySelector('.close-modal').addEventListener('click', app.ui.closeModal);
+  document.querySelector('#change-color').addEventListener('click', app.ui.openColorSelectorModal);
+
+  // listener to save notes
+  document.querySelector('#save-note').addEventListener('click', () => { app.saveNote(); });
+
+  // add events to change note colors
+  const colorButtons = document.querySelectorAll('.color-selector');
+  colorButtons.forEach((button) => {
+    button.addEventListener('click', app.ui.changeAppColor);
+  });
+
+  // add listeners to all cards to edit notes
+  const noteStack = document.querySelector('.notes-stack');
+  noteStack.addEventListener('click', handleStackEvents);
+  document.addEventListener('DOMContentLoaded', loadNotes);
 }
 
 EventListeners();

@@ -1,8 +1,5 @@
-
-
-export class UI {
-
-  createNoteBody() {
+export default class UI {
+  static createNoteBody() {
     const html = document.createElement('div');
     html.classList.add('columns');
     html.innerHTML = `
@@ -12,25 +9,25 @@ export class UI {
         <p class="note-brief subtitle"></p>
         <button class="button delete-note is-danger is-small" data-action="delete">Delete</button>
       </div>
-    `
-    return html
+    `;
+    return html;
   }
 
-  openColorSelectorModal() {
+  static openColorSelectorModal() {
     document.querySelector('#modal-change-color').classList.toggle('is-active');
   }
 
-  openNoteModal(){
+  static openNoteModal() {
     const modal = document.querySelector('.modal');
     modal.classList.toggle('is-active');
   }
 
-  closeModal(){
+  static closeModal() {
     const modal = document.querySelector('.modal');
     modal.classList.toggle('is-active');
   }
 
-  changeAppColor(event) {
+  static changeAppColor(event) {
     const color = getComputedStyle(event.target).backgroundColor;
     document.getElementsByTagName('html')[0].style.backgroundColor = color;
 
@@ -41,5 +38,4 @@ export class UI {
     // Analyze a better user experience
     event.target.parentElement.parentElement.parentElement.parentElement.classList.toggle('is-active');
   }
-
 }

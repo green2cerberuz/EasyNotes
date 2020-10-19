@@ -1,4 +1,4 @@
-import { App } from "../app.js";
+import App from '../app.js';
 
 const app = new App();
 
@@ -9,8 +9,8 @@ describe('Create note object function', () => {
   test('it should create a note object', () => {
     const input = {
       title: 'La primera nota de prueba',
-      body: 'La primera nota de prueba'
-    }
+      body: 'La primera nota de prueba',
+    };
 
     const output = {
       title: 'La primera nota de prueba',
@@ -18,9 +18,9 @@ describe('Create note object function', () => {
       position: 1,
       createdAt: new Date().toDateString(),
       brief: String(input.body).substring(0, input.body.length / 2),
-    }
-    expect(app.createNoteObject(input.title, input.body)).toEqual(output);
-  })
+    };
+    expect(App.createNoteObject(input.title, input.body)).toEqual(output);
+  });
   test('testing logic to open color selector modal', () => {
     document.body.innerHTML = `
     <button id="change-color" class="button is-link">CC</button>
@@ -34,7 +34,7 @@ describe('Create note object function', () => {
     // test behavior
     const modal = document.getElementById('modal-change-color');
     expect(modal.classList.contains('is-active')).toEqual(true);
-  })
+  });
 
   test('testing opening main modal', () => {
     document.body.innerHTML = `
@@ -43,8 +43,8 @@ describe('Create note object function', () => {
     `;
     const button = document.querySelector('.add-note');
     button.addEventListener('click', app.ui.openNoteModal);
-    button.click()
+    button.click();
     const modal = document.querySelector('.modal');
     expect(modal.classList.contains('is-active')).toEqual(true);
-  })
+  });
 });
